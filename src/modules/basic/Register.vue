@@ -57,11 +57,10 @@
   </form>
 </template>
 <script>
-import ROUTER from "router";
+import ROUTER from "router"
 export default {
   data() {
     return {
-      myList: [],
       email: "",
       fname: "",
       lname: "",
@@ -82,8 +81,6 @@ export default {
       } else if (this.password != this.conpassword) {
         alert("Mismatch password!!!");
       } else {
-        this.myList.push(this.email);
-        this.myList.push(this.password);
         alert(
           "username: " +
             this.fname +

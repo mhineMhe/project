@@ -1,19 +1,19 @@
 import Router from 'router'
-export default{
-    user: null, 
+export default {
+    user: null,
     registeredUser: [],
-    setUser(user){
+    setUser(user) {
         this.user = user
     },
-    login(username, password){
-        for(let i = 0; i< this.registeredUser.length; i++){
-            if(this.registeredUser[i].username === username && this.registeredUser[i] === password){
+    login(username, password) {
+        for (let i = 0; i < this.registeredUser.length; i++) {
+            if (this.registeredUser[i].username === username && this.registeredUser[i + 1] === password) {
                 return this.registeredUser[i]
             }
         }
     },
 
-    logout(){
+    logout() {
         this.username = null
         Router.push('./login')
     }

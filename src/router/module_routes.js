@@ -2,7 +2,7 @@ import AUTH from 'services/auth'
 // import { resolve } from 'dns'
 let beforeEnter = (to, from, next) => {
     AUTH.currentPath = to.path
-    let userID = paresInt(localStorage.getItem('accout_id'))
+    let userID = parseInt(localStorage.getItem('accout_id'))
     let token = localStorage.getItem('usertoken')
     if(token !== null && userID > 0){
         if(to.path === '/' || to.path === '/'){
@@ -13,6 +13,7 @@ let beforeEnter = (to, from, next) => {
             next()
         }
     }
+    next()
 }
 
 var devRoutes = []

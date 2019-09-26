@@ -21,13 +21,13 @@
     </div>
     <br />
     <center>
-      <button type="submit" class="btn btn-success" @click="login('./Dashboards.vue')">Login</button>
+      <button type="submit" class="btn btn-success" @click="login('./dashboard')">Login</button>
     </center>
     <br />
   </form>
 </template>
 <script>
-import ROUTER from 'router'
+import ROUTER from "router";
 export default {
   data() {
     return {
@@ -43,7 +43,7 @@ export default {
         alert("email: " + this.email + "\npassword: " + this.password);
         this.email = "";
         this.password = "";
-        ROUTER.push(route)
+        ROUTER.push(route);
       }
     }
   }
