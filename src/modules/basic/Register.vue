@@ -1,9 +1,5 @@
 <template>
-  <form
-    class="col-lg-4 mx-auto text-white"
-    style="margin-top: 50px; background-color:#055882;"
-    @submit="onSubmit"
-  >
+  <form class="col-lg-4 mx-auto text-white" id="formDesign" @submit="onSubmit">
     <br>
     <center>
       <h1>Register:</h1>
@@ -11,20 +7,8 @@
     <div>
       <label>User name:</label>
       <br>
-      <input
-        style="margin-left:5%;"
-        type="text"
-        v-model="mine.fname"
-        class="col-sm-5"
-        placeholder="First name"
-      >
-      <input
-        style="margin-left:5%;"
-        type="text"
-        v-model="mine.lname"
-        class="col-sm-5"
-        placeholder="Last name"
-      >
+      <input id="fname" type="text" v-model="mine.fname" class="col-sm-5" placeholder="First name">
+      <input id="lname" type="text" v-model="mine.lname" class="col-sm-5" placeholder="Last name">
     </div>
     <br>
     <div>
@@ -57,8 +41,21 @@
   </form>
 </template>
 
+<style lang='scss' scoped>
+@import "~assets/color.scss";
+#formDesign {
+  margin-top: 50px;
+  background-color: $color;
+}
+#lname {
+  margin-left: $margTop;
+}
+#fname {
+  margin-left: $margTop;
+}
+</style>
+
 <script>
-// import ROUTER from "router"
 import AUTH from "services/auth";
 export default {
   data() {
@@ -90,6 +87,7 @@ export default {
       } else {
         sessionStorage.setItem("Pass", this.mine.password);
         sessionStorage.setItem("fname", this.mine.fname);
+        sessionStorage.setItem("lname", this.mine.lname);
         AUTH.register(this.mine.email, this.mine.password);
       }
     }

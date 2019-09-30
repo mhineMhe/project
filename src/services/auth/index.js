@@ -14,7 +14,7 @@ export default {
     register(email, password) {
         this.registeredUser.push({
             email: email,
-            password: password,
+            password: password, 
         })
         ROUTER.push('/login')
     },
@@ -24,15 +24,9 @@ export default {
             if (this.registeredUser[i].email === email && this.registeredUser[i].password === password) {
                 ROUTER.push('/dashboard')
                 return this.registeredUser[i]
-            } else {
-                alert("Email or Password is incorrect!")
             }
         }
+        alert("Email or Password is incorrect!")
         return null
     },
-
-    logout(){
-        this.user = null
-        ROUTER.push('/login')
-    }
 }

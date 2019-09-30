@@ -1,5 +1,5 @@
 <template>
-    <sidebar-menu :menu="menu" />
+    <sidebar-menu :menu="menu" style="height:500px; width:200px;"/>
 </template>
  
 <script>
@@ -9,17 +9,27 @@
                 menu: [
                     {
                         header: true,
-                        title: 'Main Navigation',
+                        title: 'My First Project',
                         hiddenOnCollapse: true
                     },
                     {
-                        href: '/login',
-                        title: 'Login',
-                        icon: 'fa fa-user'
+                        href: '/dashboard',
+                        title: 'Dashboard',
+                        icon: 'fa fa-chart-area'
                     },
                     {
-                        href: '/register',
-                        title: 'Register',
+                        href: '/course&yr',
+                        title: 'Course & Year',
+                        icon: 'fa fa-chart-area'
+                    },
+                    {
+                        href: '/profile',
+                        title: 'Profile',
+                        icon: 'fa fa-chart-area'
+                    },
+                    {
+                        href: '/logout',
+                        title: 'Logout',
                         icon: 'fa fa-chart-area'
                     }
                 ]

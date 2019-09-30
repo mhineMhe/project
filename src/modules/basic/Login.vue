@@ -1,7 +1,7 @@
 <template>
   <form
     class="col-lg-4 mx-auto text-white"
-    style="margin-top: 100px; background-color:#055882;"
+    id="formDesign"
     @submit="onSubmit"
   >
     <br>
@@ -26,6 +26,15 @@
     <br>
   </form>
 </template>
+
+<style lang='scss' scoped>
+@import "~assets/color.scss";
+#formDesign {
+  margin-top: 100px;
+  background-color: $color;
+}
+</style>
+
 <script>
 import AUTH from "services/auth";
 // import ROUTER from "router";

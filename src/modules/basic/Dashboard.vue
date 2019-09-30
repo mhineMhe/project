@@ -1,31 +1,34 @@
+  
 <template>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-3" style="background-color:black; height:700px;">
-        <div class="col-sm-12" style="background-color:green; height: 300px;">
-          <center>
-            <div class="rounded-circle" style="position:relative; top:20px; background-color:white; height: 200px; width:200px; border-radius:50%"></div>
-          </center><br>
-          <center><h2>Hi {{myName}}</h2></center>
-        </div>
-        <div class="col-sm-12" style="background-color:blue; height: 50px;">
-          <button>Course & Yr</button>
-        </div>
-        <div class="col-sm-12" style="background-color:pink; height: 50px;">
-          <button>Personal info</button>
-        </div>
-        <div class="col-sm-12" style="background-color:violet; height: 50px;">
-          <button>Logout</button>
-        </div>
+  <div>
+    <center>
+      <br>
+      <h1 id="design">My First Project</h1>
+      <br>
+      <hr>
+      <br>
+      <br>
+      <div>
+        <b-img :src="require('assets/mine.png')" rounded="circle" alt="Circle image" id="user"></b-img>
       </div>
-      <div class="col-sm-9" style="background-color:grey;">
-        <h1>Welcome to Dashboard {{myName}}</h1>
-      </div>
-    </div>
+      <h1>Hi {{myName}}</h1>
+      <br>
+      <h3>Welcome to Dashboard</h3>
+    </center>
   </div>
 </template>
 
-
+<style lang='scss' scoped>
+@import "~assets/color.scss";
+#user {
+  width: $userWidth !important;
+  height: $userHeight !important;
+}
+#design{
+  font-size: $h1size;
+  color: $color;
+}
+</style>
 
 <script>
 export default {
@@ -35,9 +38,7 @@ export default {
       myName: sessionStorage.getItem("fname")
     };
   },
-  component: {
-  },
-  methods: {
-  }
+  component: {},
+  methods: {}
 };
 </script>
