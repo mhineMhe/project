@@ -2,96 +2,95 @@
   <form
     class="col-lg-4 mx-auto text-white"
     style="margin-top: 50px; background-color:#055882;"
-    onsubmit="return false;"
+    @submit="onSubmit"
   >
-    <br />
+    <br>
     <center>
       <h1>Register:</h1>
     </center>
     <div>
       <label>User name:</label>
-      <br />
+      <br>
       <input
         style="margin-left:5%;"
         type="text"
-        v-model="fname"
+        v-model="mine.fname"
         class="col-sm-5"
         placeholder="First name"
-      />
+      >
       <input
         style="margin-left:5%;"
         type="text"
-        v-model="lname"
+        v-model="mine.lname"
         class="col-sm-5"
         placeholder="Last name"
-      />
+      >
     </div>
-    <br />
+    <br>
     <div>
       <label>Email address:</label>
-      <br />
-      <input type="email" v-model="email" class="form-control" placeholder="Enter email" />
+      <br>
+      <input type="email" v-model="mine.email" class="form-control" placeholder="Enter email">
     </div>
-    <br />
+    <br>
     <div>
       <label>Password:</label>
-      <br />
-      <input type="password" v-model="password" class="form-control" placeholder="Password" />
+      <br>
+      <input type="password" v-model="mine.password" class="form-control" placeholder="Password">
     </div>
-    <br />
+    <br>
     <div>
       <label>Confirm Password:</label>
-      <br />
+      <br>
       <input
         type="password"
-        v-model="conpassword"
+        v-model="mine.conpassword"
         class="form-control"
         placeholder="Confirm Password"
-      />
+      >
     </div>
-    <br />
+    <br>
     <center>
-      <button type="submit" class="btn btn-success" v-on:click="register('./login')">Register</button>
+      <button type="submit" class="btn btn-success">Register</button>
     </center>
-    <br />
+    <br>
   </form>
 </template>
+
 <script>
-import ROUTER from "router"
+// import ROUTER from "router"
+import AUTH from "services/auth";
 export default {
   data() {
     return {
-      email: "",
-      fname: "",
-      lname: "",
-      password: "",
-      conpassword: ""
+      auth: AUTH,
+      mine: {
+        email: "",
+        fname: "",
+        lname: "",
+        password: "",
+        conpassword: ""
+      },
+      show: true
     };
   },
   methods: {
-    register(route) {
+    onSubmit(evt) {
+      evt.preventDefault();
       if (
-        this.email == "" ||
-        this.password == "" ||
-        this.fname == "" ||
-        this.lname == "" ||
-        this.conpassword == ""
+        this.mine.email == "" ||
+        this.mine.password == "" ||
+        this.mine.fname == "" ||
+        this.mine.lname == "" ||
+        this.mine.conpassword == ""
       ) {
         alert("All fields are required!!!");
-      } else if (this.password != this.conpassword) {
+      } else if (this.mine.password != this.mine.conpassword) {
         alert("Mismatch password!!!");
       } else {
-        alert(
-          "username: " +
-            this.fname +
-            " " +
-            this.lname +
-            "\nemail: " +
-            this.email +
-            "\npassword: " +
-            this.password
-        );
-        ROUTER.push(route);
+        sessionStorage.setItem("Pass", this.mine.password);
+        sessionStorage.setItem("fname", this.mine.fname);
+        AUTH.register(this.mine.email, this.mine.password);
       }
     }
   }
