@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <myheader />
+    <myheader v-show="$route.name==='register' || $route.name==='login' || $route.path === '/' ? true : false"/>
     <!-- <dashboard /> -->
     <myBody />
   </div>
