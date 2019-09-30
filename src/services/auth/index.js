@@ -29,5 +29,10 @@ export default {
             }
         }
         return null
+    },
+
+    logout(){
+        this.user = null
+        ROUTER.push('/login')
     }
 }

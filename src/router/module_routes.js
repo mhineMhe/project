@@ -2,14 +2,26 @@ import AUTH from 'services/auth'
 // import { resolve } from 'dns'
 let beforeEnter = (to, from, next) => {
     AUTH.currentPath = to.path
-    if (to.meta.tokenRequired == true) {
-        if (sessionStorage.getItem("Pass") != null) {
-            next()
-        } else {
+    if (sessionStorage.getItem("Pass") != null) {
+        if (to.meta.tokenRequired === true) {
             next({ path: '/login' })
+        } else {
+            next()
         }
     } else {
         next()
+
+        // if (sessionStorage.getItem("Pass") != null) {
+        //     if (to.path === '/' || to.path === '/') {
+        //         next({ path: '/login' })
+        //     } else if (to.meta.tokenRequired === true) {
+        //         next({ path: '/' })
+        //     } else {
+        //         next()
+        //     }
+        // } else {
+        //     next()
+        // }
 
         // let userID = parseInt(localStorage.getItem('accout_id'))
         // let token = localStorage.getItem('usertoken')
