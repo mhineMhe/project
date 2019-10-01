@@ -33,7 +33,7 @@
 
 <script>
 import AUTH from "services/auth";
-import jquery from "jquery";
+// import jquery from "jquery";
 // import ROUTER from "router";
 export default {
   data() {
@@ -50,14 +50,14 @@ export default {
       if (this.mine.email === "" || this.mine.password === "") {
         alert("All fields are required");
       } else {
-        let link = 'http://localhost:3000/user'
-        jquery.ajax({
-          url: link,
-          method: 'POST',
-          headers: {
-            'Access-Control-Allow-Origin': '*'
-          }
-        })
+        // let link = 'http://localhost:3000/user'
+        // jquery.ajax({
+        //   url: link,
+        //   method: 'POST',
+        //   headers: {
+        //     'Access-Control-Allow-Origin': '*'
+        //   }
+        // })
         AUTH.login(this.mine.email, this.mine.password);
       }
     }
