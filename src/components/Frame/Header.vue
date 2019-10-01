@@ -7,8 +7,8 @@
 
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
-          <b-nav-item @click="redirect('./login')">Login</b-nav-item>
-          <b-nav-item @click="redirect('./register')">Register</b-nav-item>
+          <b-nav-item  v-show="$route.name==='register' || $route.name==='login' || $route.path === '/' ? true : false" @click="redirect('./login')">Login</b-nav-item>
+          <b-nav-item  v-show="$route.name==='register' || $route.name==='login' || $route.path === '/' ? true : false" @click="redirect('./register')">Register</b-nav-item>
         </b-navbar-nav>
 
         <!-- Right aligned nav items -->

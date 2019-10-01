@@ -30,13 +30,13 @@ import ROUTER from "router";
 export default {
   methods: {
     yes() {
-    //   sessionStorage.removeItem("sex");
-    //   sessionStorage.removeItem("age");
-    //   sessionStorage.removeItem("height");
-    //   sessionStorage.removeItem("religion");
-    //   sessionStorage.removeItem("status");
-    //   sessionStorage.removeItem("course");
-    //   sessionStorage.removeItem("year");
+      sessionStorage.removeItem("sex");
+      sessionStorage.removeItem("age");
+      sessionStorage.removeItem("height");
+      sessionStorage.removeItem("religion");
+      sessionStorage.removeItem("status");
+      sessionStorage.removeItem("course");
+      sessionStorage.removeItem("year");
     //   sessionStorage.removeItem("Pass");
     //   sessionStorage.removeItem("fname");
     //   sessionStorage.removeItem("lname");
