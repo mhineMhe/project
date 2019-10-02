@@ -3,6 +3,8 @@ import ROUTER from 'router';
 export default {
     user: null,
     registeredUser: [],
+    subjects: [],
+    course: [],
     setUser(user) {
         this.user = user
     },
@@ -29,4 +31,19 @@ export default {
         alert("Email or Password is incorrect!")
         return null
     },
+
+    addSubject(subject, teach, sched) {
+        this.subjects.push({
+            subject: subject,
+            teach: teach,
+            sched: sched,
+        });
+    },
+
+    addCourse(course, year){
+        this.course.push({
+            course: course,
+            year: year
+        })
+    }
 }

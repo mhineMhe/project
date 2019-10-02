@@ -11,7 +11,7 @@
         {'id': 1, 'text': 'Dashboard', 'url': 'http://localhost:8080/#/dashboard'},
         {'id': 2, 'text': 'Course & Year', 'url': 'http://localhost:8080/#/course&yr'},
         {'id': 3, 'text': 'Profile', 'url': 'http://localhost:8080/#/profile'},
-        {'id': 4, 'text': 'Logout', 'url': 'http://localhost:8080/#/logout', 'width': '100%;'}
+        {'id': 4, 'text': 'Logout', 'url': 'http://localhost:8080/#/logout'}
       ]"
     ></sidevar>
     <!-- <dashboard /> -->

@@ -55,15 +55,6 @@ export default {
         },
 
         {
-            path: '/addCY',
-            name: 'addCY',
-            component: resolve => require(['modules/basic/addCY.vue'], resolve),
-            meta: {
-                tokenRequired: true
-            }
-        },
-
-        {
             path: '/logout',
             name: 'logout',
             component: resolve => require(['modules/basic/logout.vue'], resolve),
