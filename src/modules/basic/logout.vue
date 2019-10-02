@@ -35,8 +35,6 @@ export default {
       sessionStorage.removeItem("height");
       sessionStorage.removeItem("religion");
       sessionStorage.removeItem("status");
-      sessionStorage.removeItem("course");
-      sessionStorage.removeItem("year");
     //   sessionStorage.removeItem("Pass");
     //   sessionStorage.removeItem("fname");
     //   sessionStorage.removeItem("lname");

@@ -1,18 +1,18 @@
 <template>
   <div class="container" id="contMargin">
     <center>
-      <h1 style="font-size:80px;">
+      <h1 style="font-size:70px; margin-top: -3%;">
         Welcome {{fname}} {{lname}}
         <br />
       </h1>
       <br />
     </center>
-    <div class="row" id="backCol">
+    <div class="row" id="backCol" style="margin-top: -2%;">
       <div class="col-sm-4">
         <center>
-          <br>
-          <h1>Couse & Year
-          </h1><hr style="border: 1px solid #bab8b8">
+          <br />
+          <h1>Couse & Year</h1>
+          <hr style="border: 1px solid #bab8b8" />
           <br />
         </center>
         <div>
@@ -72,24 +72,33 @@
             </tbody>
           </table>
         </div>
+        <div>
+          <br />
+          <input type="text" v-model="delsub" class="form-control" placeholder="subject" />
+          <center>
+            <button type="submit" class="btn btn-success" @click="delSub()">Remove Subject</button>
+          </center>
+        </div>
         <br />
       </div>
       <div class="col-sm-4">
         <center>
-          <br>
-          <h1>Subjects
-          </h1><hr style="border: 1px solid #bab8b8">
+          <br />
+          <h1>Subjects</h1>
+          <hr style="border: 1px solid #bab8b8" />
           <br />
         </center>
         <div>
           <label>Subject:</label>
           <br />
-          <input type="text" v-model="subject" class="form-control" placeholder="subject" /><br>
+          <input type="text" v-model="subject" class="form-control" placeholder="subject" />
+          <br />
         </div>
         <div>
           <label>Instructor:</label>
           <br />
-          <input type="text" v-model="teach" class="form-control" placeholder="instructor" /><br>
+          <input type="text" v-model="teach" class="form-control" placeholder="instructor" />
+          <br />
         </div>
         <div>
           <label>Schedule:</label>
@@ -123,7 +132,6 @@
 </style>
 
 <script>
-import AUTH from "services/auth";
 export default {
   data() {
     return {
@@ -135,25 +143,35 @@ export default {
       year: "",
       subject: "",
       teach: "",
-      sched: ""
+      sched: "",
+      delsub: ""
       // subject: sessionStorage.getItem("subject")
     };
   },
 
   methods: {
+    delSub(){
+      for(let i = 0; i < this.rows.length; i++){
+        if(this.rows[i].subject === this.delsub){
+          alert(this.rows[i].subject)
+          alert(this.rows.indexOf(this.rows[i]))
+          this.rows.splice(this.rows.indexOf(this.rows[i]), 1);
+        }
+      }
+      this.delsub = ""
+    },
+
     addCourse() {
-      this.col.splice(0,5)
-      AUTH.addCourse(this.course, this.year);
+      this.col.splice(0, 5);
       this.col.push({
         course: this.course,
         year: this.year
       });
-      (this.course = ""), (this.year = "")
-      this.rows.splice(0,20)
+      (this.course = ""), (this.year = "");
+      this.rows.splice(0, 20);
     },
 
     addSub() {
-      AUTH.addSubject(this.subject, this.teach, this.sched);
       this.rows.push({
         subject: this.subject,
         teach: this.teach,
