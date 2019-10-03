@@ -1,43 +1,43 @@
 <template>
   <form class="col-lg-4 mx-auto text-white" id="formDesign" @submit="onSubmit">
-    <br>
+    <br />
     <center>
       <h1>Register:</h1>
     </center>
     <div>
       <label>User name:</label>
-      <br>
-      <input id="fname" type="text" v-model="mine.fname" class="col-sm-5" placeholder="First name">
-      <input id="lname" type="text" v-model="mine.lname" class="col-sm-5" placeholder="Last name">
+      <br />
+      <input id="fname" type="text" v-model="mine.fname" class="col-sm-5" placeholder="First name" />
+      <input id="lname" type="text" v-model="mine.lname" class="col-sm-5" placeholder="Last name" />
     </div>
-    <br>
+    <br />
     <div>
       <label>Email address:</label>
-      <br>
-      <input type="email" v-model="mine.email" class="form-control" placeholder="Enter email">
+      <br />
+      <input type="email" v-model="mine.email" class="form-control" placeholder="Enter email" />
     </div>
-    <br>
+    <br />
     <div>
       <label>Password:</label>
-      <br>
-      <input type="password" v-model="mine.password" class="form-control" placeholder="Password">
+      <br />
+      <input type="password" v-model="mine.password" class="form-control" placeholder="Password" />
     </div>
-    <br>
+    <br />
     <div>
       <label>Confirm Password:</label>
-      <br>
+      <br />
       <input
         type="password"
         v-model="mine.conpassword"
         class="form-control"
         placeholder="Confirm Password"
-      >
+      />
     </div>
-    <br>
+    <br />
     <center>
-      <button type="submit" class="btn btn-success">Register</button>
+      <button type="submit" class="btn btn-success" @click="register()">Register</button>
     </center>
-    <br>
+    <br />
   </form>
 </template>
 
@@ -57,6 +57,7 @@
 
 <script>
 import AUTH from "services/auth";
+import jquery from "jquery";
 export default {
   data() {
     return {
@@ -90,6 +91,17 @@ export default {
         sessionStorage.setItem("lname", this.mine.lname);
         AUTH.register(this.mine.email, this.mine.password);
       }
+    },
+
+    register() {
+      let link = `http://localhost:3000/db/create/${this.mine.fname}/${this.mine.email}/${this.mine.password}`;
+      jquery.ajax({
+        url: link,
+        method: "GET",
+        headers: {
+          "Access-Control-Allow-Origin": "*"
+        }
+      });
     }
   }
 };

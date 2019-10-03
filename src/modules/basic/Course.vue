@@ -150,15 +150,13 @@ export default {
   },
 
   methods: {
-    delSub(){
-      for(let i = 0; i < this.rows.length; i++){
-        if(this.rows[i].subject === this.delsub){
-          alert(this.rows[i].subject)
-          alert(this.rows.indexOf(this.rows[i]))
+    delSub() {
+      for (let i = 0; i < this.rows.length; i++) {
+        if (this.rows[i].subject === this.delsub) {
           this.rows.splice(this.rows.indexOf(this.rows[i]), 1);
         }
       }
-      this.delsub = ""
+      this.delsub = "";
     },
 
     addCourse() {
@@ -172,11 +170,15 @@ export default {
     },
 
     addSub() {
-      this.rows.push({
-        subject: this.subject,
-        teach: this.teach,
-        sched: this.sched
-      });
+      if (this.col.length > 0) {
+        this.rows.push({
+          subject: this.subject,
+          teach: this.teach,
+          sched: this.sched
+        });
+      } else {
+        alert("Add subject first!!!");
+      }
       (this.subject = ""), (this.teach = ""), (this.sched = "");
     }
   }
