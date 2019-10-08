@@ -28,36 +28,9 @@ export default {
         },
 
         {
-            path: '/course&yr',
-            name: 'course&yr',
-            component: resolve => require(['modules/basic/Course.vue'], resolve),
-            meta: {
-                tokenRequired: true
-            }
-        },
-
-        {
-            path: '/profile',
-            name: 'profile',
-            component: resolve => require(['modules/basic/Profile.vue'], resolve),
-            meta: {
-                tokenRequired: true
-            }
-        },
-
-        {
-            path: '/addprof',
-            name: 'addprof',
-            component: resolve => require(['modules/basic/addProf.vue'], resolve),
-            meta: {
-                tokenRequired: true
-            }
-        },
-
-        {
-            path: '/logout',
-            name: 'logout',
-            component: resolve => require(['modules/basic/logout.vue'], resolve),
+            path: '/post',
+            name: 'post',
+            component: resolve => require(['modules/basic/post.vue'], resolve),
             meta: {
                 tokenRequired: true
             }

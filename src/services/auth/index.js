@@ -1,6 +1,7 @@
 import ROUTER from 'router';
 
 export default {
+    post: [],
     user: null,
     registeredUser: [],
     setUser(user) {
